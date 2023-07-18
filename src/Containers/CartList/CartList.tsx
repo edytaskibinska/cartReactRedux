@@ -5,7 +5,6 @@ import { ICartElement } from "../../Interfaces/ICartElement";
 //store actions
 import { useDispatch } from "react-redux";
 import {
-  resetQuantity,
   increaseQuantity,
   decreaseQuantity,
   removeItem,
@@ -22,10 +21,6 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
   };
   const handleDecrease = (id: any) => {
     dispatch(decreaseQuantity(id));
-  };
-
-  const handleReset = (id: any) => {
-    dispatch(resetQuantity(id));
   };
 
   const handleRemoveItem = (itemId: number) => {
@@ -56,7 +51,6 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
               <>
                 <Button onClick={() => handleIncrease(item.id)}>+</Button>
                 <Button onClick={() => handleDecrease(item.id)}>-</Button>
-                <Button onClick={() => handleReset(item.id)}>Reset</Button>
               </>
             }
           />
