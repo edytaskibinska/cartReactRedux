@@ -11,19 +11,19 @@ const initialState: ICartInitState = {
       id: 1,
       title: "Article 1",
       description: "Description de l'article 1",
-      quantity: 1,
+      quantity: 0,
     },
     {
       id: 2,
       title: "Article 2",
       description: "Description de l'article 2",
-      quantity: 1,
+      quantity: 0,
     },
     {
       id: 3,
       title: "Article 3",
       description: "Description de l'article 3",
-      quantity: 1,
+      quantity: 0,
     },
   ],
 };
@@ -32,14 +32,21 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProduct: (state, action: PayloadAction<number>) => {
-      console.log("addProduct state", state);
+    increaseQuantity: (state, action: PayloadAction<number>) => {
+      console.log("increaseQuantity state", state);
       const item = state.items.find((item) => item.id === action.payload);
       if (item) {
         item.quantity += 1;
       }
     },
-    removeProduct: (state, action: PayloadAction<number>) => {
+    decreaseQuantity: (state, action: PayloadAction<number>) => {
+        console.log("decreaseQuantity state", state);
+        const item = state.items.find((item) => item.id === action.payload);
+        if (item) {
+          item.quantity -= 1;
+        }
+      },
+    resetQuantity: (state, action: PayloadAction<number>) => {
       console.log("relove state", state);
       const item = state.items.find((item) => item.id === action.payload);
       if (item) {
@@ -49,6 +56,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, removeProduct } =
+export const { increaseQuantity,decreaseQuantity,  resetQuantity } =
   cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ICartElement } from "../../Interfaces/ICartElement";
 import { useDispatch } from "react-redux";
-import { removeProduct, addProduct } from "../../Store/cartSlice";
+import { resetQuantity, increaseQuantity, decreaseQuantity } from "../../Store/cartSlice";
 
 const CartElement: FC<ICartElement> = ({
   id,
@@ -11,12 +11,15 @@ const CartElement: FC<ICartElement> = ({
 }) => {
   const dispatch = useDispatch();
 
-  const handleAdd = () => {
-    dispatch(addProduct(id));
+  const handleIncrease = () => {
+    dispatch(increaseQuantity(id));
+  };
+  const handleDecrease = () => {
+    dispatch(decreaseQuantity(id));
   };
 
   const handleRemove = () => {
-    dispatch(removeProduct(id));
+    dispatch(resetQuantity(id));
   };
 
   return (
@@ -24,7 +27,8 @@ const CartElement: FC<ICartElement> = ({
       <h3>{title}</h3>
       <p>{description}</p>
       <p>Quantité dans le panier : {quantity}</p>
-      <button onClick={handleAdd}>+1</button>
+      <button onClick={handleIncrease}>+</button>
+      <button onClick={handleDecrease}>-</button>
       <button onClick={handleRemove}>Supprimer</button>
     </div>
   );
