@@ -1,0 +1,19 @@
+.mainNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px;
+  &__item {
+    text-decoration: none;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      color: green;
+    }
+  }
+}
