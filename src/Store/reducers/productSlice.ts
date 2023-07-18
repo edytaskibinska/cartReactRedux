@@ -40,10 +40,6 @@ const productsSlice = createSlice({
         product.quantity++;
       }
     },
-    addItem: (state, action: PayloadAction<ICartElement>) => {
-      const newItem = action.payload;
-      state.items.push(newItem);
-    },
   },
 });
 
