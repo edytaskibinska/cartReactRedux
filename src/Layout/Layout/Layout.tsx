@@ -2,9 +2,8 @@ import { FC, ReactNode } from "react";
 import { navList } from "../../Routes/RoutesList";
 
 import Footer from "../Footer/Footer";
-import Nav from "../Nav/Nav";
-import Main from "../Main/Main";
-import "./Layout.scss"
+import { Header, Nav, Main } from "../";
+import "./Layout.scss";
 
 interface ILayout {
   content?: ReactNode;
@@ -13,9 +12,13 @@ interface ILayout {
 const Layout: FC<ILayout> = ({ content }) => {
   return (
     <div className="layout">
-      <Nav navList={navList} />
+      <Header>
+        Mon panier
+        <Nav navList={navList} />
+      </Header>
       <Main>{content}</Main>
-      <Footer>Copyright 2023 Company name</Footer>
+      
+      <Footer>Footer</Footer>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-//import Layout from "../Layout/Layout/Layout";
 import { Layout } from "../Layout";
 
 import { CartPage, PageNotFound, ProductListPage } from "../Pages";
