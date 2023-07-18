@@ -1,35 +1,29 @@
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 import { ICartElement } from "../../Interfaces/ICartElement";
-import { useDispatch } from "react-redux";
-import { resetQuantity, increaseQuantity, decreaseQuantity } from "../../Store/cartSlice";
+import { Button } from "../";
 
-const CartElement: FC<ICartElement> = ({
+interface ICartElemWithActions extends ICartElement {
+  handleIncrease: (event: MouseEvent<HTMLElement>) => void;
+  handleDecrease: (event: MouseEvent<HTMLElement>) => void;
+  handleRemove: (event: MouseEvent<HTMLElement>) => void;
+}
+const CartElement: FC<ICartElemWithActions> = ({
   id,
   title,
   description,
   quantity,
+  handleIncrease,
+  handleDecrease,
+  handleRemove,
 }) => {
-  const dispatch = useDispatch();
-
-  const handleIncrease = () => {
-    dispatch(increaseQuantity(id));
-  };
-  const handleDecrease = () => {
-    dispatch(decreaseQuantity(id));
-  };
-
-  const handleRemove = () => {
-    dispatch(resetQuantity(id));
-  };
-
   return (
     <div id={`${id}`}>
       <h3>{title}</h3>
       <p>{description}</p>
       <p>Quantité dans le panier : {quantity}</p>
-      <button onClick={handleIncrease}>+</button>
-      <button onClick={handleDecrease}>-</button>
-      <button onClick={handleRemove}>Supprimer</button>
+      <Button onClick={handleIncrease}>+</Button>
+      <Button onClick={handleDecrease}>-</Button>
+      <Button onClick={handleRemove}>Supprimer</Button>
     </div>
   );
 };
