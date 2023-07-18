@@ -1,29 +1,52 @@
-import { FC, MouseEvent } from "react";
+import { FC, MouseEvent, ReactNode } from "react";
 import { ICartElement } from "../../Interfaces/ICartElement";
-import { Button } from "../";
+import { Title, Button } from "../";
+import "./CartElement.scss";
 
 interface ICartElemWithActions extends ICartElement {
-  handleIncrease: (event: MouseEvent<HTMLElement>) => void;
-  handleDecrease: (event: MouseEvent<HTMLElement>) => void;
-  handleRemove: (event: MouseEvent<HTMLElement>) => void;
+  showQuantity?: boolean;
+  contentBefore?: ReactNode;
+  contentAfter?: ReactNode;
+  handleConfirmDelete?: (
+    event: MouseEvent<HTMLElement, MouseEvent>
+  ) => void | undefined;
 }
 const CartElement: FC<ICartElemWithActions> = ({
   id,
   title,
   description,
   quantity,
-  handleIncrease,
-  handleDecrease,
-  handleRemove,
+  showQuantity,
+  contentBefore,
+  contentAfter,
+  handleConfirmDelete,
 }) => {
   return (
     <div id={`${id}`}>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <p>Quantité dans le panier : {quantity}</p>
-      <Button onClick={handleIncrease}>+</Button>
-      <Button onClick={handleDecrease}>-</Button>
-      <Button onClick={handleRemove}>Supprimer</Button>
+      {/* S.O.L.I.D - OCP - Open-Closed Principle */}
+      <div className="contentBefore">{contentBefore}</div>
+      <div className="contentStatic">
+        <Title level={2}>{title}</Title>
+        <p>{description}</p>
+
+        {showQuantity && (
+          <>
+            {quantity !== undefined && quantity > 0 ? (
+              <p>Quantité : {quantity}</p>
+            ) : (
+              <>
+                {/* @ts-ignore */}
+                <Button onClick={handleConfirmDelete} className="confirmDelete">
+                  Confirmer la suppression?
+                </Button>
+              </>
+            )}
+          </>
+        )}
+
+        {/* S.O.L.I.D - OCP - Open-Closed Principle */}
+        <div className="contentAfter">{contentAfter}</div>
+      </div>
     </div>
   );
 };

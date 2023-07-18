@@ -1,12 +1,16 @@
 .button {
-    padding: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    border-color: transparent;
-    color: white;
-    background-color: cornflowerblue;
-    border-radius: 4px;
-    transition-duration: 0.25s;
-    border: none;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: transparent;
+  color: white;
+  background-color: cornflowerblue;
+  border-radius: 4px;
+  transition-duration: 0.25s;
+  border: none;
+  &:disabled,
+  &[disabled] {
+    opacity: 0.7;
+  }
 }

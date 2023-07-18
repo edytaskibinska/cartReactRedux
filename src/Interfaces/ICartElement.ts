@@ -1,6 +1,6 @@
 export interface ICartElement {
-  id: number;
+  id: any;
   title: string;
   description: string;
-  quantity: number;
+  quantity?: number
 }
