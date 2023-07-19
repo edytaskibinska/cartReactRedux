@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CartElement, Button } from "../../Components";
 import { ICartElement } from "../../Interfaces/ICartElement";
 import { RootState } from "../../Store/configureStore";
+import "./ProductList.scss"
 
 //store actions
 import { addItem } from "../../Store/reducers/cartSlice";
@@ -20,6 +21,7 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
     dispatch(addToCart(product.id));
     dispatch(addItem(product));
   };
+
 
   return (
     <div className="TODO-replaceitByInfiniteScroll">
