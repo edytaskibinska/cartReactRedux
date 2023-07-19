@@ -16,7 +16,7 @@ const ProductListPage: FC<IProductListPage> = () => {
     <div className="productListPage">
       <Banner alt="banner" src={image} />
       <Box>
-        <Title level={1}>Product page</Title>
+        <Title level={1}>Produits:</Title>
         <LazyScroll<ICartElement>
           items={products}
           component={ProductList}
