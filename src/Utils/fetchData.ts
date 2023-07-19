@@ -1,10 +1,8 @@
-// src/utils/fetchData.ts
-
 import { ICartElement } from "../Interfaces/ICartElement";
 
 export const fetchData = async (): Promise<ICartElement[]> => {
   try {
-    const response = await fetch("./fakeData.json"); // Update the path accordingly
+    const response = await fetch("./fakeData.json");
     console.log("response", response)
     if (!response.ok) {
       throw new Error("Failed to fetch data");
