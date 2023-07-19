@@ -2,11 +2,11 @@ import React from "react";
 
 interface IIconRemove {
   fill: string;
+  scale?: string;
 }
 
-const IconRemove: React.FC<IIconRemove> = ({ fill }) => (
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <title />
+const IconRemove: React.FC<IIconRemove> = ({ fill, scale }) => (
+  <svg viewBox="0 0 30 30" width={scale} xmlns="http://www.w3.org/2000/svg">
     <g data-name="Layer 17" id="Layer_17">
       <path
         fill={fill}

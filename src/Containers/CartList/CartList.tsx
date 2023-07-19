@@ -38,7 +38,7 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
             contentBefore={
               <div className="pushSwipable">
                 <Button onClick={() => handleRemoveItem(item.id)}>
-                  <IconRemove fill="#FFF"/>
+                  <IconRemove scale="40" fill="#FFF"/>
                 </Button>
               </div>
             }

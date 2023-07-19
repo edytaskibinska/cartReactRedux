@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 interface ILazyScroll<T> {
   items: T[];
   component: FC<{ cartItems: T[] }>;
-  initialVisibleElement: number;
+  initialVisibleElement?: number;
   numberOfAddedElementOnScroll: number;
 }
 
@@ -14,7 +14,7 @@ const LazyScroll = <T extends any>({
   numberOfAddedElementOnScroll,
 }: ILazyScroll<T>) => {
   const [visibleItems, setVisibleItems] = useState<T[]>([]);
-  const [visibleCount, setVisibleCount] = useState(initialVisibleElement);
+  const [visibleCount, setVisibleCount] = useState(initialVisibleElement || items.length);
   const totalItems = items.length;
 
   useEffect(() => {
@@ -33,6 +33,7 @@ const LazyScroll = <T extends any>({
 
   const handleScroll = () => {
     const totalPageHeight = document.body.scrollHeight;
+    console.log("totalPageHeight", totalPageHeight)
     const currentPosition = window.innerHeight + window.scrollY;
     // checking if user reached the bottom of the page :
     if (totalPageHeight - currentPosition < 100) {

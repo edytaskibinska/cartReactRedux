@@ -1,4 +1,5 @@
 @import "../../Styles/vars";
+@import "../../Styles/mixins";
 
 .button {
   padding: 8px;
@@ -8,11 +9,15 @@
   color: white;
   background-color: $color-basic;
   border-radius: 4px;
-  transition-duration: 0.25s;
-  border: none;
+  @include transition-all;
+  border: 0px solid transparent;
   font-size: .9rem;
+  &:focus {
+    outline: none;
+  }
   &:disabled,
   &[disabled] {
+    @include transition-all;
     opacity: 0.7;
   }
 }

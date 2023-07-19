@@ -1,4 +1,5 @@
 @import "../../Styles/vars";
+@import "../../Styles/mixins";
 
 .cartElement {
   position: relative;
@@ -7,36 +8,34 @@
   margin: 10px 0;
   padding: 10px;
   background-color: $color-white;
-
-  border: 1px solid red;
   overflow: hidden;
 }
 .contentBefore {
-  background-color: blue;
   width: 100px;
   position: absolute;
   top: 0px;
   bottom: 0px;
   left: -100px;
-  transition: all 1s ease;
+  @include transition-all;
   display: flex;
   &.show {
     left: 0px;
-    transition: all 1s ease;
+    @include transition-all;
   }
 }
 .contentStatic {
   position: relative;
   left: 0px;
-  transition: all 1s ease;
+  @include transition-all;
+  display: flex;
+  flex-direction: column;
 
   &.swipe {
     left: 100px;
     width: calc(100% - 100px);
-    transition: all 1s ease;
+    @include transition-all;
   }
   .swipeDesktopHiddenButton {
-    border: 1px solid red;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -46,9 +45,8 @@
   }
   .confirmDelete {
     background-color: $color-orange;
-   position: relative;
-   //TODO bien positionner
-   left: 60%;
+    align-self: flex-end;
+    margin-bottom: 10px;
   }
 }
 .contentAfter {

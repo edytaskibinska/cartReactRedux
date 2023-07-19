@@ -37,7 +37,6 @@ const CartPage: FC<ICartPage> = () => {
       <LazyScroll<ICartElement>
         items={mergedItems}
         component={CartList}
-        initialVisibleElement={3}
         numberOfAddedElementOnScroll={2}
       />
       {mergedItems.length <= 0 && (

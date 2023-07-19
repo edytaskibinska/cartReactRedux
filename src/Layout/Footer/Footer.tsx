@@ -39,7 +39,7 @@ const Footer: FC<IFooter> = ({ children }) => {
         modaltextcolor="#dd3d62"
         withButtonClose
       >
-        Votre panier a été vidé, nous vous invitons d'ajouter des produits :)
+        Votre panier a été vidé, merci pour votre visite.
       </Modal>
     </>
   );

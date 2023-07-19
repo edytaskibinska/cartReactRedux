@@ -19,7 +19,7 @@ const ProductListPage: FC<IProductListPage> = () => {
       <LazyScroll<ICartElement>
         items={products}
         component={ProductList}
-        initialVisibleElement={3}
+        initialVisibleElement={4}
         numberOfAddedElementOnScroll={2}
       />
     </div>
