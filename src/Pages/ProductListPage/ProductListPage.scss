@@ -1,3 +1,37 @@
 .productListPage {
   padding-bottom: 200px;
+  .lazyScroll {
+    display: flex;
+    flex-direction: column;
+  }
+  @media all and (min-width: 650px) {
+    .lazyScroll {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-left: 0;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .listItem {
+      flex: 0 0 calc(30% - 5px);
+      margin: 5px;
+      align-self: stretch;
+      display: flex;
+      .cartElement {
+        min-height: 200px;
+        align-self: stretch;
+        display: flex;
+        justify-content: stretch;
+      }
+      .contentStatic {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+      .contentAfter {
+        justify-content: center;
+      }
+    }
+  }
 }
