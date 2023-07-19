@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productsReducer, { fetchInitialData } from "./reducers/productSlice";
 import cartReducer from "./reducers/cartSlice";
-import thunk from "redux-thunk"; 
+import thunk from "redux-thunk";
 
 const store = configureStore({
   reducer: {
@@ -10,8 +10,7 @@ const store = configureStore({
   },
   middleware: [thunk],
 });
-//@ts-ignore
-store.dispatch(fetchInitialData()); 
+store.dispatch(fetchInitialData() as any);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
