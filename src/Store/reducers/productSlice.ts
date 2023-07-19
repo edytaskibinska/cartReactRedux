@@ -13,7 +13,7 @@ const initialState: ProductsState = {
 
 export const fetchInitialData = () => async (dispatch: any) => {
   try {
-    const data = await fetchData();
+    const data = await fetchData("./fakeData.json");
     dispatch(productsSlice.actions.setInitialData(data));
   } catch (error) {
     console.error("Error fetching initial data:", error);
