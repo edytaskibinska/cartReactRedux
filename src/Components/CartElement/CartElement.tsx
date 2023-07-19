@@ -52,8 +52,6 @@ const CartElement: FC<ICartElemWithActions> = ({
   return (
     <div
       className="cartElement"
-      // @ts-ignore
-      onClick={swippable && handleClickSwipe}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -64,6 +62,13 @@ const CartElement: FC<ICartElemWithActions> = ({
         </div>
       )}
       <div className={`contentStatic ${showContentBefore ? "swipe" : ""}`}>
+        {swippable && (
+          <div
+            className="swipeDesktopHiddenButton"
+            // @ts-ignore
+            onClick={swippable && handleClickSwipe}
+          ></div>
+        )}
         <Title level={2}>{title}</Title>
         <p>{description}</p>
 
