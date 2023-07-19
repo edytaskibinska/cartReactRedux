@@ -2,7 +2,7 @@ import { FC } from "react";
 import "./CartPage.scss";
 import { useSelector } from "react-redux";
 import { CartList, LazyScroll } from "../../Containers";
-import { Title } from "../../Components";
+import { Box, Title } from "../../Components";
 import { RootState } from "../../Store/configureStore";
 import { ICartElement } from "../../Interfaces/ICartElement";
 
@@ -33,15 +33,18 @@ const CartPage: FC<ICartPage> = () => {
 
   return (
     <div className="cartPage">
-      <Title level={2}>Panier</Title>
-      <LazyScroll<ICartElement>
-        items={mergedItems}
-        component={CartList}
-        numberOfAddedElementOnScroll={2}
-      />
-      {mergedItems.length <= 0 && (
-        <div className="emptyBacket">Le panier est vide</div>
-      )}
+      <Box>
+        <Title level={2}>Panier</Title>
+        <LazyScroll<ICartElement>
+          items={mergedItems}
+          component={CartList}
+          numberOfAddedElementOnScroll={2}
+        />
+
+        {mergedItems.length <= 0 && (
+          <div className="emptyBacket">Le panier est vide</div>
+        )}
+      </Box>
     </div>
   );
 };

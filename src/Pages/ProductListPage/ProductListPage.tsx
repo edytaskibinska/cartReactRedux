@@ -3,7 +3,7 @@ import "./ProductListPage.scss";
 import { ProductList, LazyScroll } from "../../Containers";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store/configureStore";
-import { Banner, Title } from "../../Components";
+import { Banner, Box, Title } from "../../Components";
 import image from "../../Assets/banner.png";
 import { ICartElement } from "../../Interfaces/ICartElement";
 
@@ -15,13 +15,15 @@ const ProductListPage: FC<IProductListPage> = () => {
   return (
     <div className="productListPage">
       <Banner alt="banner" src={image} />
-      <Title level={1}>Product page</Title>
-      <LazyScroll<ICartElement>
-        items={products}
-        component={ProductList}
-        initialVisibleElement={4}
-        numberOfAddedElementOnScroll={2}
-      />
+      <Box>
+        <Title level={1}>Product page</Title>
+        <LazyScroll<ICartElement>
+          items={products}
+          component={ProductList}
+          initialVisibleElement={4}
+          numberOfAddedElementOnScroll={2}
+        />
+      </Box>
     </div>
   );
 };
