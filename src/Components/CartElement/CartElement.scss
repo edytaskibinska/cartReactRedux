@@ -1,9 +1,10 @@
 @import "../../Styles/vars";
 
 .cartElement {
-  border: 1px solid $color-gray-clear;
+  box-shadow: 0 6px 6px rgba(101, 101, 101, .07), 0 13px 17px rgba(21, 21, 21, .2);
   margin: 10px 0;
   padding: 10px;
+  background-color: $color-white;
 }
 .swipeOverlay {
   position: relative;
@@ -15,6 +16,7 @@
 }
 
 .contentBefore {
+  background-color: $color-white;
 }
 .contentStatic {
   .confirmDelete {

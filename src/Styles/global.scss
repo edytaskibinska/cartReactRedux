@@ -1,7 +1,9 @@
 
+@import "./vars";
+
 body {
-  background-color: white;
-  color: black;
+  background-color: $color-gray-clear;
+  color: $color-black;
   margin: 0;
 }
 :root {
@@ -11,7 +13,7 @@ body {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: $color-gray-clear;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
