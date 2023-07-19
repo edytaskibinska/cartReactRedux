@@ -22,9 +22,10 @@ const CartElement: FC<ICartElemWithActions> = ({
   handleConfirmDelete,
 }) => {
   return (
-    <div id={`${id}`}>
+    <div className="cartElement">
       {/* S.O.L.I.D - OCP - Open-Closed Principle */}
-      <div className="contentBefore">{contentBefore}</div>
+
+      {contentBefore && <div className="contentBefore">{contentBefore}</div>}
       <div className="contentStatic">
         <Title level={2}>{title}</Title>
         <p>{description}</p>
@@ -32,7 +33,7 @@ const CartElement: FC<ICartElemWithActions> = ({
         {showQuantity && (
           <>
             {quantity !== undefined && quantity > 0 ? (
-              <p>Quantité : {quantity}</p>
+              <p>Quantité :{quantity}</p>
             ) : (
               <>
                 {/* @ts-ignore */}
@@ -45,7 +46,7 @@ const CartElement: FC<ICartElemWithActions> = ({
         )}
 
         {/* S.O.L.I.D - OCP - Open-Closed Principle */}
-        <div className="contentAfter">{contentAfter}</div>
+        {contentAfter && <div className="contentAfter">{contentAfter}</div>}
       </div>
     </div>
   );

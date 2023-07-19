@@ -13,12 +13,11 @@ const Layout: FC<ILayout> = ({ content }) => {
   return (
     <div className="layout">
       <Header>
-        Mon panier
         <Nav navList={navList} />
       </Header>
       <Main>{content}</Main>
       
-      <Footer>Footer</Footer>
+      <Footer>Copyright Company name 2023</Footer>
     </div>
   );
 };

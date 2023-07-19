@@ -1,31 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICartElement } from "../../Interfaces/ICartElement";
 
+import { fetchData } from "../../Utils/fetchData";
+
 interface ProductsState {
   items: ICartElement[];
 }
 
 const initialState: ProductsState = {
-  items: [
-    {
-      id: 1,
-      title: "Article 1",
-      description: "Description de l'article 1",
-      quantity: 1,
-    },
-    {
-      id: 2,
-      title: "Article 2",
-      description: "Description de l'article 2",
-      quantity: 1,
-    },
-    {
-      id: 3,
-      title: "Article 3",
-      description: "Description de l'article 3",
-      quantity: 1,
-    },
-  ],
+  items: [],
+};
+
+export const fetchInitialData = () => async (dispatch: any) => {
+  try {
+    const data = await fetchData();
+    dispatch(productsSlice.actions.setInitialData(data));
+  } catch (error) {
+    console.error("Error fetching initial data:", error);
+  }
 };
 
 const productsSlice = createSlice({
@@ -40,9 +32,12 @@ const productsSlice = createSlice({
         product.quantity + 1;
       }
     },
+    setInitialData: (state, action: PayloadAction<ICartElement[]>) => {
+      state.items = action.payload;
+    },
   },
 });
 
-export const { addToCart } = productsSlice.actions;
+export const { addToCart , setInitialData} = productsSlice.actions;
 
 export default productsSlice.reducer;

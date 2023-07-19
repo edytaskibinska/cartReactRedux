@@ -1,18 +1,31 @@
+@import "../../Styles/vars";
+
+.cartElement {
+  border: 1px solid $color-gray-clear;
+  margin: 10px 0;
+  padding: 10px;
+}
 .swipeOverlay {
-    position: relative;
-    transition: transform 0.2s ease-out;
-  }
-  
-  .swiped .contentBefore {
-    transform: translateX(-100%);
-  }
+  position: relative;
+  transition: transform 0.2s ease-out;
+}
+
+.swiped .contentBefore {
+  transform: translateX(-100%);
+}
 
 .contentBefore {
-    border: 2px solid green;
 }
 .contentStatic {
-    border: 2px solid grey;
+  .confirmDelete {
+    background-color: $color-orange;
+    margin: 0 auto;
+    display: block;
+  }
 }
 .contentAfter {
-    border: 2px solid red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  font-size: 0.8rem;
 }

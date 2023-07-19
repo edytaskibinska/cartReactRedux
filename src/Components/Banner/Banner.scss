@@ -1,0 +1,11 @@
+.bannerContainer {
+  overflow: hidden;
+  height: 120px;
+  width: 100%;
+  position: relative;
+  .banner {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}

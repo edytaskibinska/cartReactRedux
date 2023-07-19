@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CartElement, Button } from "../../Components";
 import { ICartElement } from "../../Interfaces/ICartElement";
-
+import "./CartList.scss";
 //store actions
 import { useDispatch } from "react-redux";
 import {
@@ -34,23 +34,26 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
         <div key={item.id}>
           <CartElement
             contentBefore={
-              <>
+              <div className="pushSwipable">
                 <Button onClick={() => handleRemoveItem(item.id)}>
                   Supprimer
                 </Button>
-              </>
+              </div>
             }
             key={index}
             id={item.id}
             title={item.title}
             description={item.description}
-            quantity={item.quantity}
             showQuantity
+            quantity={item.quantity}
             handleConfirmDelete={() => handleRemoveItem(item.id)}
             contentAfter={
               <>
-                <Button onClick={() => handleIncrease(item.id)}>+</Button>
+                <div className="quantity">Gerer la quantité : </div>
                 <Button onClick={() => handleDecrease(item.id)}>-</Button>
+
+                <div className="qteblock">{item.quantity}</div>
+                <Button onClick={() => handleIncrease(item.id)}>+</Button>
               </>
             }
           />

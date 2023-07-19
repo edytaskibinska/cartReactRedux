@@ -37,6 +37,9 @@ const CartPage: FC<ICartPage> = () => {
       <>{console.log("cartItems", cartItems)}</>
       <>{console.log("mergedItems", mergedItems)}</>
       <CartList cartItems={mergedItems} />
+      
+      {mergedItems.length <= 0 &&  <div className="emptyBacket">Le panier est vide</div>}
+     
     </div>
   );
 };

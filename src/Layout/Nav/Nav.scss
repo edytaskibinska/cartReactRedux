@@ -1,3 +1,5 @@
+@import "../../Styles/vars";
+
 .mainNav {
   display: flex;
   justify-content: center;
@@ -9,11 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    color: $color-gray;
     &:hover {
       text-decoration: underline;
     }
     &.active {
-      color: green;
+      color: $color-basic;
+      font-weight: 600;
     }
   }
 }
