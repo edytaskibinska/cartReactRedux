@@ -37,7 +37,7 @@ const productsSlice = createSlice({
       console.log("action.payload", action.payload);
       const product = state.items.find((item) => item.id === productId);
       if (product && product.quantity !== undefined) {
-        product.quantity++;
+        product.quantity + 1;
       }
     },
   },

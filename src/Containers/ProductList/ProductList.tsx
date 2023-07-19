@@ -27,7 +27,6 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
         <div key={item.id}>
           <>{console.log("item.id", item.id)}</>
           <>{console.log("item.quantity", item.quantity)}</>
-
           <CartElement
             key={item.id}
             id={item.id}
