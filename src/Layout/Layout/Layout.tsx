@@ -16,8 +16,7 @@ const Layout: FC<ILayout> = ({ content }) => {
         <Nav navList={navList} />
       </Header>
       <Main>{content}</Main>
-      
-      <Footer>Copyright Company name 2023</Footer>
+      <Footer>Vider le panier</Footer>
     </div>
   );
 };

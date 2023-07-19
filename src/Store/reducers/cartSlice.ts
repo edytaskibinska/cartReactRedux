@@ -14,10 +14,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<ICartElement>) => {
-      const item = state.items?.find((item) => item.id === action.payload);
-
-      console.log("ADDED item", item)
-
+      //const item = state.items?.find((item) => item.id === action.payload);
       const productId = action.payload;
       state.items = [...state.items, productId];
     },
@@ -30,14 +27,17 @@ const cartSlice = createSlice({
     decreaseQuantity: (state, action: PayloadAction<number>) => {
       const item = state.items?.find((item) => item.id === action.payload);
       if (item && item.quantity !== undefined) {
-        if(item.quantity <= 0) {
-          return
+        if (item.quantity <= 0) {
+          return;
         }
         item.quantity--;
       }
     },
     removeItem(state, action: PayloadAction<number>) {
       state.items = state.items?.filter((item) => item.id !== action.payload);
+    },
+    emptyCart(state) {
+      state.items = [];
     },
   },
 });
@@ -47,6 +47,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   removeItem,
+  emptyCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
