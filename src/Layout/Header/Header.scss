@@ -1,6 +1,11 @@
+@import "../../Styles/vars";
+
 .header {
-  display: fixed;
-  justify-content: center;
-  border: 2px solid pink;
+  position: fixed;
+  z-index: 999;
   padding: 2rem 0 1.5rem;
+  background: $color-white;
+  width: 100%;
+  border-bottom: 1px solid $color-gray;
+
 }
