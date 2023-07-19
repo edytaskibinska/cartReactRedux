@@ -1,24 +1,40 @@
 @import "../../Styles/vars";
 
 .cartElement {
-  box-shadow: 0 6px 6px rgba(101, 101, 101, .07), 0 13px 17px rgba(21, 21, 21, .2);
+  position: relative;
+  box-shadow: 0 6px 6px rgba(101, 101, 101, 0.07),
+    0 13px 17px rgba(21, 21, 21, 0.2);
   margin: 10px 0;
   padding: 10px;
   background-color: $color-white;
-}
-.swipeOverlay {
-  position: relative;
-  transition: transform 0.2s ease-out;
-}
 
-.swiped .contentBefore {
-  transform: translateX(-100%);
+  border: 1px solid red;
+  overflow: hidden;
 }
-
 .contentBefore {
-  background-color: $color-white;
+  background-color: blue;
+  width: 100px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: -100px;
+  transition: all 1s ease;
+  display: flex;
+  &.show {
+    left: 0px;
+    transition: all 1s ease;
+  }
 }
 .contentStatic {
+  position: relative;
+  left: 0px;
+  transition: all 1s ease;
+
+  &.swipe {
+    left: 100px;
+    width: calc(100% - 100px);
+    transition: all 1s ease;
+  }
   .confirmDelete {
     background-color: $color-orange;
     margin: 0 auto;

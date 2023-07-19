@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { CartElement, Button } from "../../Components";
+import IconRemove from "../../Assets/IconRemove/IconRemove";
 import { ICartElement } from "../../Interfaces/ICartElement";
 import "./CartList.scss";
 //store actions
@@ -33,10 +34,11 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
       {cartItems.map((item: ICartElement, index: any) => (
         <div key={item.id} className={`listItem`}>
           <CartElement
+            swippable
             contentBefore={
               <div className="pushSwipable">
                 <Button onClick={() => handleRemoveItem(item.id)}>
-                  Supprimer
+                  <IconRemove fill="#FFF"/>
                 </Button>
               </div>
             }

@@ -1,4 +1,4 @@
-import { FC, MouseEvent, ReactNode } from "react";
+import { FC, MouseEvent, ReactNode, useState, useRef } from "react";
 import { ICartElement } from "../../Interfaces/ICartElement";
 import { Title, Button } from "../";
 import "./CartElement.scss";
@@ -7,10 +7,12 @@ interface ICartElemWithActions extends ICartElement {
   showQuantity?: boolean;
   contentBefore?: ReactNode;
   contentAfter?: ReactNode;
+  swippable?: boolean;
   handleConfirmDelete?: (
     event: MouseEvent<HTMLElement, MouseEvent>
   ) => void | undefined;
 }
+
 const CartElement: FC<ICartElemWithActions> = ({
   title,
   description,
@@ -18,14 +20,50 @@ const CartElement: FC<ICartElemWithActions> = ({
   showQuantity,
   contentBefore,
   contentAfter,
+  swippable,
   handleConfirmDelete,
 }) => {
-  return (
-    <div className="cartElement">
-      {/* S.O.L.I.D - OCP - Open-Closed Principle */}
+  const [showContentBefore, setShowContentBefore] = useState(false);
+  const touchStartXRef = useRef<number | null>(null);
 
-      {contentBefore && <div className="contentBefore">{contentBefore}</div>}
-      <div className="contentStatic">
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchStartXRef.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartXRef.current !== null) {
+      const touchEndX = event.changedTouches[0].clientX;
+      const touchDistance = touchEndX - touchStartXRef.current;
+
+      if (touchDistance > 100) {
+        setShowContentBefore(true);
+      } else {
+        setShowContentBefore(false);
+      }
+
+      touchStartXRef.current = null;
+    }
+  };
+
+  const handleClickSwipe = () => {
+    setShowContentBefore(!showContentBefore);
+  };
+
+  return (
+    <div
+      className="cartElement"
+      // @ts-ignore
+      onClick={swippable && handleClickSwipe}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* S.O.L.I.D - OCP - Open-Closed Principle */}
+      {contentBefore && (
+        <div className={`contentBefore ${showContentBefore ? "show" : ""}`}>
+          {contentBefore}
+        </div>
+      )}
+      <div className={`contentStatic ${showContentBefore ? "swipe" : ""}`}>
         <Title level={2}>{title}</Title>
         <p>{description}</p>
 
