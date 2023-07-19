@@ -72,7 +72,7 @@ const CartElement: FC<ICartElemWithActions> = ({
         {showQuantity && (
           <>
             {quantity !== undefined && quantity > 0 ? (
-              <p>Quantité :{quantity}</p>
+              <p className="smallText">Quantité :{quantity}</p>
             ) : (
               <>
                 <Button onClick={handleConfirmDelete} className="confirmDelete">
