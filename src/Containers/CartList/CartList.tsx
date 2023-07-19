@@ -28,10 +28,10 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
   };
 
   return (
-    <div className="TODO-replaceitByInfiniteScroll">
+    <>
       <>{console.log("cartItems", cartItems)}</>
       {cartItems.map((item: ICartElement, index: any) => (
-        <div key={item.id}>
+        <div key={item.id} className={`listItem`}>
           <CartElement
             contentBefore={
               <div className="pushSwipable">
@@ -59,7 +59,7 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
           />
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

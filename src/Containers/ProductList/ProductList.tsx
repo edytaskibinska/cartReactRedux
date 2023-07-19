@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CartElement, Button } from "../../Components";
 import { ICartElement } from "../../Interfaces/ICartElement";
 import { RootState } from "../../Store/configureStore";
-import "./ProductList.scss"
-
+import "./ProductList.scss";
 //store actions
 import { addItem } from "../../Store/reducers/cartSlice";
 import { addToCart } from "../../Store/reducers/productSlice";
@@ -14,7 +13,6 @@ interface IProductList {
 }
 const ProductList: FC<IProductList> = ({ cartItems }) => {
   const dispatch = useDispatch();
-  //const products = useSelector((state: RootState) => state.products.items);
   const productsInCart = useSelector((state: RootState) => state.cart.items);
 
   const handleAddToCart = (product: any) => {
@@ -22,13 +20,10 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
     dispatch(addItem(product));
   };
 
-
   return (
-    <div className="TODO-replaceitByInfiniteScroll">
+    <>
       {cartItems.map((item: ICartElement) => (
-        <div key={item.id}>
-          <>{console.log("item.id", item.id)}</>
-          <>{console.log("item.quantity", item.quantity)}</>
+        <div key={item.id} className={`listItem`}>
           <CartElement
             key={item.id}
             id={item.id}
@@ -51,7 +46,7 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
           />
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

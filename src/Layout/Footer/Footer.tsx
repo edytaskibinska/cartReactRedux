@@ -6,7 +6,7 @@ import { RootState } from "../../Store/configureStore";
 import {} from "react-redux";
 import { emptyCart } from "../../Store/reducers/cartSlice";
 
-//Modal from npm design system
+//Modal from npm @e-skibinska/proton-design-system
 import { Modal } from "@e-skibinska/proton-design-system";
 
 interface IFooter {

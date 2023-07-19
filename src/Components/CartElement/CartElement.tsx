@@ -12,7 +12,6 @@ interface ICartElemWithActions extends ICartElement {
   ) => void | undefined;
 }
 const CartElement: FC<ICartElemWithActions> = ({
-  id,
   title,
   description,
   quantity,

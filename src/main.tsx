@@ -9,7 +9,6 @@ import store from "./Store/configureStore.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <>{console.log("STORE", store.getState())}</>
     {/* <PersistGate loading={null} persistor={persistor}> */}
 
     <React.StrictMode>

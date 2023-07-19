@@ -1,23 +1,27 @@
 import { FC } from "react";
 import "./ProductListPage.scss";
-import { ProductList } from "../../Containers";
+import { ProductList, LazyScroll } from "../../Containers";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store/configureStore";
 import { Banner, Title } from "../../Components";
-import image from "../../Assets/banner.png"
+import image from "../../Assets/banner.png";
+import { ICartElement } from "../../Interfaces/ICartElement";
 
 interface IProductListPage {}
 
 const ProductListPage: FC<IProductListPage> = () => {
   const products = useSelector((state: RootState) => state.products.items);
-  //   const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="productListPage">
-      <Banner alt="banner" src={image}/>
+      <Banner alt="banner" src={image} />
       <Title level={1}>Product page</Title>
-      <>{console.log("products", products)}</>
-      <ProductList cartItems={products} />
+      <LazyScroll<ICartElement>
+        items={products}
+        component={ProductList}
+        initialVisibleElement={3}
+        numberOfAddedElementOnScroll={2}
+      />
     </div>
   );
 };
