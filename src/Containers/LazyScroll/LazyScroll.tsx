@@ -7,6 +7,7 @@ interface ILazyScroll<T> {
   numberOfAddedElementOnScroll: number;
 }
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 const LazyScroll = <T extends any>({
   items,
   component: Component,
@@ -14,7 +15,9 @@ const LazyScroll = <T extends any>({
   numberOfAddedElementOnScroll,
 }: ILazyScroll<T>) => {
   const [visibleItems, setVisibleItems] = useState<T[]>([]);
-  const [visibleCount, setVisibleCount] = useState(initialVisibleElement || items.length);
+  const [visibleCount, setVisibleCount] = useState(
+    initialVisibleElement || items.length
+  );
   const totalItems = items.length;
 
   useEffect(() => {
@@ -33,7 +36,7 @@ const LazyScroll = <T extends any>({
 
   const handleScroll = () => {
     const totalPageHeight = document.body.scrollHeight;
-    console.log("totalPageHeight", totalPageHeight)
+    console.log("totalPageHeight", totalPageHeight);
     const currentPosition = window.innerHeight + window.scrollY;
     // checking if user reached the bottom of the page :
     if (totalPageHeight - currentPosition < 100) {

@@ -13,6 +13,7 @@ interface IFooter {
   children?: ReactNode;
 }
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 const Footer: FC<IFooter> = ({ children }) => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();

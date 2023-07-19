@@ -3,6 +3,7 @@ import productsReducer, { fetchInitialData } from "./reducers/productSlice";
 import cartReducer from "./reducers/cartSlice";
 import thunk from "redux-thunk";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 const store = configureStore({
   reducer: {
     products: productsReducer,

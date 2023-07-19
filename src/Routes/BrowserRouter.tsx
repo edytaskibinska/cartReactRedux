@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
+//all routes configuration in one file
 const Root = () => {
   return <Layout content={<Outlet />} />
 };

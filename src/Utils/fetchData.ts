@@ -1,5 +1,7 @@
 import { ICartElement } from "../Interfaces/ICartElement";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
+//Fetching data
 export const fetchData = async (): Promise<ICartElement[]> => {
   try {
     const response = await fetch("./fakeData.json");

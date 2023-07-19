@@ -10,7 +10,7 @@ interface ICartElemWithActions extends ICartElement {
   swippable?: boolean;
   handleConfirmDelete?: (event: MouseEvent<any>) => void;
 }
-
+//S.O.L.I.D - SRP - Single Responsibility Principle
 const CartElement: FC<ICartElemWithActions> = ({
   title,
   description,

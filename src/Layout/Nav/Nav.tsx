@@ -7,6 +7,7 @@ interface INav {
   navList: INavLink[];
 }
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 const Nav: FC<INav> = ({ navList }) => {
   return (
     <nav className="mainNav">
@@ -15,7 +16,7 @@ const Nav: FC<INav> = ({ navList }) => {
           return (
             <NavLink
               className="mainNav__item"
-              to={item.navLinkRoute}
+              to={item.navLinkRoute}//S.O.L.I.D - DIP - Dependency Inversion principle
               key={index}
             >
               {item.navLinkName}

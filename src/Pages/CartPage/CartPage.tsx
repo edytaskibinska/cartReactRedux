@@ -40,7 +40,6 @@ const CartPage: FC<ICartPage> = () => {
           component={CartList}
           numberOfAddedElementOnScroll={2}
         />
-
         {mergedItems.length <= 0 && (
           <div className="emptyBacket">Le panier est vide</div>
         )}
