@@ -8,7 +8,7 @@ interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
-  onClick?: (event: MouseEvent<HTMLElement>) => void;
+  onClick?: (event: MouseEvent<any>) => void;
 }
 
 const Button: FC<IButton> = ({

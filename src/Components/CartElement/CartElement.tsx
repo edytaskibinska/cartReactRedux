@@ -8,9 +8,7 @@ interface ICartElemWithActions extends ICartElement {
   contentBefore?: ReactNode;
   contentAfter?: ReactNode;
   swippable?: boolean;
-  handleConfirmDelete?: (
-    event: MouseEvent<HTMLElement, MouseEvent>
-  ) => void | undefined;
+  handleConfirmDelete?: (event: MouseEvent<any>) => void;
 }
 
 const CartElement: FC<ICartElemWithActions> = ({
@@ -65,7 +63,6 @@ const CartElement: FC<ICartElemWithActions> = ({
         {swippable && (
           <div
             className="swipeDesktopHiddenButton"
-            // @ts-ignore
             onClick={swippable && handleClickSwipe}
           ></div>
         )}
@@ -78,7 +75,6 @@ const CartElement: FC<ICartElemWithActions> = ({
               <p>Quantité :{quantity}</p>
             ) : (
               <>
-                {/* @ts-ignore */}
                 <Button onClick={handleConfirmDelete} className="confirmDelete">
                   Confirmer la suppression?
                 </Button>

@@ -1,9 +1,11 @@
+@import "../../Styles/vars";
+
 .page404 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #2c3e50;
+  color: $color-error;
   max-width: 100%;
   padding: 20px;
   .text404 {
@@ -19,7 +21,7 @@
     text-align: center;
   }
   .link {
-    color: #2c3e50;
+    color: $color-error;
     margin-bottom: 70px;
   }
   @media all and (max-width: 650px) {

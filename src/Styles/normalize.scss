@@ -1,3 +1,5 @@
+@import "./vars";
+
 // =============================================================================
 // Normalize.scss based on Nicolas Gallagher and Jonathan Neal's
 // normalize.css v2.1.3 | MIT License | git.io/normalize
@@ -31,8 +33,8 @@ $h4_margin: 1.33em 0 !default;
 $h5_margin: 1.67em 0 !default;
 $h6_margin: 2.33em 0 !default;
 
-$background: #fff !default;
-$color: #000 !default;
+$background: $color-white !default;
+$color: $color-black !default;
 
 // =============================================================================
 // HTML5 display definitions
@@ -214,8 +216,8 @@ dfn {
 // Addresses styling not present in IE6/7/8/9
 
 mark {
-  background: #ff0;
-  color: #000;
+  background: $color-bunchy-blue;
+  color: $color-black;
 }
 
 // Addresses margins set differently in IE6/7
@@ -383,7 +385,7 @@ figure {
 // Define consistent border, margin, and padding
 
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid $color-gray;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
