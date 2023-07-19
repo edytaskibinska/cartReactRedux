@@ -14,17 +14,17 @@ L’exercice consiste à tester vos capacités à concevoir une architecture d�
 
 ## Architecture
 
-The Application and NPM Module Architecture is based on S.O.L.I.D principles abstracted to use them in modern React Typescript application.
-You can see examples by searching the keyword S.O.L.I.D in the code.
+L'Application est basé sur les principes on S.O.L.I.D qui ont étés abstraits pour pouvoir les utiliser dans l'application React Typescript moderne.
+Recherchez les mots-clés S.O.L.I.D dans le code pour voir les exemples.
 
-## To run the application : 
+## Les commandes pour demarrer le projet: 
 
 Install node-modules :
 ```
 npm install
 ```
 
-Development : 
+Development mode : 
 ```
 npm run dev
 ```
@@ -33,6 +33,7 @@ Build :
 ```
 npm run build
 ```
+
 Typescript check CLI : 
 ```
 tsc
