@@ -39,6 +39,11 @@ Typescript check CLI :
 tsc
 ```
 
+Test with Jest: 
+```
+npm test
+```
+
 ## Fonctionnalités : 
 ### Routes
 L'application possède 2 routes:

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Store/configureStore";
 import { Banner, Box, Title } from "../../Components";
 import image from "../../Assets/banner.png";
-import { ICartElement } from "../../Interfaces/ICartElement";
+import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 
 interface IProductListPage {}
 
@@ -17,7 +17,7 @@ const ProductListPage: FC<IProductListPage> = () => {
       <Banner alt="banner" src={image} />
       <Box>
         <Title level={1}>Produits:</Title>
-        <LazyScroll<ICartElement>
+        <LazyScroll<InterfaceCartElement >
           items={products}
           component={ProductList}
           initialVisibleElement={4}

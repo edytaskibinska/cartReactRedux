@@ -1,9 +1,9 @@
 import { FC, MouseEvent, ReactNode, useState, useRef } from "react";
-import { ICartElement } from "../../Interfaces/ICartElement";
+import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 import { Title, Button } from "../";
 import "./CartElement.scss";
 
-interface ICartElemWithActions extends ICartElement {
+interface ICartElemWithActions extends InterfaceCartElement {
   showQuantity?: boolean;
   contentBefore?: ReactNode;
   contentAfter?: ReactNode;

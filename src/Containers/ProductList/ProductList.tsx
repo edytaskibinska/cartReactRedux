@@ -1,28 +1,41 @@
 import { FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CartElement, Button } from "../../Components";
-import { ICartElement } from "../../Interfaces/ICartElement";
+import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 import { RootState } from "../../Store/configureStore";
 import "./ProductList.scss";
 //store actions
 import { addItem } from "../../Store/reducers/cartSlice";
-import { addToCart } from "../../Store/reducers/productSlice";
+import {
+  increaseQuantity,
+  decreaseQuantity,
+} from "../../Store/reducers/cartSlice";
 
 interface IProductList {
-  cartItems: ICartElement[];
+  cartItems: InterfaceCartElement[];
 }
 const ProductList: FC<IProductList> = ({ cartItems }) => {
   const dispatch = useDispatch();
   const productsInCart = useSelector((state: RootState) => state.cart.items);
 
+  const getProductQuantityFromCart = (productId: number) => {
+    const cartItem = productsInCart.find((item) => item.id === productId);
+    return cartItem ? cartItem.quantity : 0;
+  };
+
   const handleAddToCart = (product: any) => {
-    dispatch(addToCart(product.id));
     dispatch(addItem(product));
+  };
+  const handleIncrease = (id: any) => {
+    dispatch(increaseQuantity(id));
+  };
+  const handleDecrease = (id: any) => {
+    dispatch(decreaseQuantity(id));
   };
 
   return (
     <>
-      {cartItems.map((item: ICartElement) => (
+      {cartItems.map((item: InterfaceCartElement) => (
         <div key={item.id} className={`listItem`}>
           <CartElement
             key={item.id}
@@ -31,17 +44,29 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
             description={item.description}
             quantity={item.quantity}
             contentAfter={
-              <Button
-                id={item.id}
-                onClick={() => handleAddToCart(item)}
-                disabled={productsInCart.some(
-                  (cartItem) => cartItem.id === item.id
+              <>
+                <Button
+                  id={item.id}
+                  onClick={() => handleAddToCart(item)}
+                  disabled={productsInCart.some(
+                    (cartItem) => cartItem.id === item.id
+                  )}
+                >
+                  {productsInCart.some((cartItem) => cartItem.id === item.id)
+                    ? `Déjà dans le panier`
+                    : "Ajouter au panier"}
+                </Button>
+                {productsInCart.some((cartItem) => cartItem.id === item.id) && (
+                  <>
+                    <Button onClick={() => handleDecrease(item.id)}>-</Button>
+
+                    <div className="qteblock">
+                      {getProductQuantityFromCart(item.id)}
+                    </div>
+                    <Button onClick={() => handleIncrease(item.id)}>+</Button>
+                  </>
                 )}
-              >
-                {productsInCart.some((cartItem) => cartItem.id === item.id)
-                  ? "Déjà dans le panier"
-                  : "Ajouter au panier"}
-              </Button>
+              </>
             }
           />
         </div>

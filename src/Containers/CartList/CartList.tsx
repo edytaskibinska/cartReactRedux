@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CartElement, Button } from "../../Components";
 import IconRemove from "../../Assets/IconRemove/IconRemove";
-import { ICartElement } from "../../Interfaces/ICartElement";
+import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 import "./CartList.scss";
 //store actions
 import { useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ import {
 } from "../../Store/reducers/cartSlice";
 
 interface ICartList {
-  cartItems: ICartElement[];
+  cartItems: InterfaceCartElement[];
 }
 const CartList: FC<ICartList> = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -30,15 +30,14 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
 
   return (
     <>
-      <>{console.log("cartItems", cartItems)}</>
-      {cartItems.map((item: ICartElement, index: any) => (
+      {cartItems.map((item: InterfaceCartElement, index: any) => (
         <div key={item.id} className={`listItem`}>
           <CartElement
             swippable
             contentBefore={
               <div className="pushSwipable">
                 <Button onClick={() => handleRemoveItem(item.id)}>
-                  <IconRemove scale="40" fill="#FFF"/>
+                  <IconRemove scale="40" fill="#FFF" />
                 </Button>
               </div>
             }
@@ -52,10 +51,24 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
             contentAfter={
               <>
                 <div className="quantity">Gerer la quantité : </div>
-                <Button onClick={() => handleDecrease(item.id)}>-</Button>
+                <Button
+                  role="button"
+                  name="decrease"
+                  className="decrease"
+                  onClick={() => handleDecrease(item.id)}
+                >
+                  -
+                </Button>
 
                 <div className="qteblock">{item.quantity}</div>
-                <Button onClick={() => handleIncrease(item.id)}>+</Button>
+                <Button
+                  role="button"
+                  name="increase"
+                  className="increase"
+                  onClick={() => handleIncrease(item.id)}
+                >
+                  +
+                </Button>
               </>
             }
           />

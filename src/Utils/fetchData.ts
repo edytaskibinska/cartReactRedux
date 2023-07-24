@@ -1,8 +1,8 @@
-import { ICartElement } from "../Interfaces/ICartElement";
+import { InterfaceCartElement } from "../Interfaces/InterfaceCartElement";
 
 //S.O.L.I.D - SRP - Single Responsibility Principle
 //Fetching data
-export const fetchData = async (dataUrl: string): Promise<ICartElement[]> => {
+export const fetchData = async (dataUrl: string): Promise<InterfaceCartElement []> => {
   try {
     const response = await fetch(dataUrl);
     if (!response.ok) {
