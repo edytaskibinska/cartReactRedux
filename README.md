@@ -105,8 +105,42 @@ Si vous avez des questions n'hesitez pas a revenir vers moi.
 2. Correction de fonctionnement de panier - la quantité qui augmente pour chaque produit ajoute est maintenant geré directement dans reducer addItem
 3. Amélioration de la page Produit - le bouton indique que le produit est ajouté mais l'utilisateur peut changer la quantité et sur la page produit et sur la page panier - les deux sont synchronisés avec le store
 4. Ajout de redux persist pour stocker le state dans localstorage 
+## Liste RAF pour améliorer le projet:
+1. UI - ajouter les effets gradient sur le boutons et autres elements du site
+2. UI - ajouter les photos aux elements des produits, améliorer le deign pour le rendre plus user friendly (encore pas mal de travail)
+3. SCSS - creer plus de mixins ou fonctions (en fonction de comment le projet grandit il faut revoir regulierement la css et faire de la refacto, rassembler les règles en mixins, créer des fonctions au besoin, ajouter plus de variables de tailles de polices, marges etc..)
+4. Definir 2 ou 3 breakpoints (max) pour eviter d'en avoir trop
+5. UX - transformer le carré gris avec la quantité en input et permettre à l'utilisateur de saisir le nombre des produits directement.
+6. J'aurai amélioré un peu les polices - implementer un font plus joli (?) - reduire les tailles
+7. Améliorer la compatibilité cross-browser - (leger décalage de l'affichage fles sur FF)
+8. LazyScroll - j'aurai bien aimé ajouter un useEffect qui recupere la hauteur de la page et determine le nombre des elements initialement chargés automatiquement. Si on ne saisit pas le nombre exacte, le composant affiche le nombre des elements qui entrent dans la partie visible de du window et ensuite les elements s'ajoutent progresssivement au scroll.
+9. Comme pour chaque site, il faut ajouter un composant loader.
+10. Créer un hook pour fetcher data avec la gestion d'erreurs et le loader - quelques chose comme :
+https://github.com/edytaskibinska/P12/blob/master/src/hooks/useFetchAsync.js
+- si cette implementation match avec l'initial state du store (à tester) sinon améliorer la fonction fetch dans utils. Ce point aurait besoin de la mise en place si on attend la reponse des vrais data de l'API. 
+11. Component swipable : si besoin créer un composant simple qui prend en children la liste des elements (par exemple divs) et en fonction de nombre et longueur de ces élements swipe du gauche a droite. A voir si on en a besoin dans d'autres endroits de l'application. 
+12. Améliorer l'affichage de la "grille" des produits, ajuster les hauteurs etc
 
-FILES :
+## Ameliorations a faire :
+1. UI - ajouter les effets gradient sur le boutons et autres elements du site
+2. UI - ajouter les photos aux elements des produits, améliorer le deign pour le rendre plus user friendly (encore pas mal de travail)
+3. SCSS - creer plus de mixins ou fonctions (en fonction de comment le projet grandit il faut revoir regulierement la css et faire de la refacto, rassembler les règles en mixins, créer des fonctions au besoin, ajouter plus de variables de tailles de polices, marges etc..)
+4. Definir 2 ou 3 breakpoints (max) pour eviter d'en avoir trop
+5. UX - transformer le carré gris avec la quantité en input et permettre à l'utilisateur de saisir le nombre des produits directement.
+6. J'aurai amélioré un peu les polices - implementer un font plus joli (?) - reduire les tailles
+7. Améliorer la compatibilité cross-browser - (leger décalage de l'affichage fles sur FF)
+8. LazyScroll - j'aurai bien aimé ajouter un useEffect qui recupere la hauteur de la page et determine le nombre des elements initialement chargés automatiquement. Si on ne saisit pas le nombre exacte, le composant affiche le nombre des elements qui entrent dans la partie visible de du window et ensuite les elements s'ajoutent progresssivement au scroll.
+9. Comme pour chaque site, il faut ajouter un composant loader.
+10. Créer un hook pour fetcher data avec la gestion d'erreurs et le loader - quelques chose comme :
+https://github.com/edytaskibinska/P12/blob/master/src/hooks/useFetchAsync.js
+- si cette implementation match avec l'initial state du store (à tester) sinon améliorer la fonction fetch dans utils. Ce point aurait besoin de la mise en place si on attend la reponse des vrais data de l'API. 
+11. Component swipable : si besoin créer un composant simple qui prend en children la liste des elements (par exemple divs) et en fonction de nombre et longueur de ces élements swipe du gauche a droite. A voir si on en a besoin dans d'autres endroits de l'application. 
+12. Améliorer l'affichage de la "grille" des produits, ajuster les hauteurs etc
+
+
+
+
+Ameliorations effectués dans les fichiers  :
 ```
     modified:   README.md // MAJ de readme - plus clair
     new file:   empty-module.js //En résumé, utiliser module.exports = {}; (ou export default {} en TypeScript) dans empty-module.js  permet de créer un module vide qui peut être utilisé pour des mocks, éviter des erreurs de module manquant ou remplacer temporairement des modules lors de l'écriture de tests unitaires avec Jest.
@@ -125,20 +159,5 @@ FILES :
 
 
 
-## Liste RAF pour améliorer le projet:
-1. UI - ajouter les effets gradient sur le boutons et autres elements du site
-2. UI - ajouter les photos aux elements des produits, améliorer le deign pour le rendre plus user friendly (encore pas mal de travail)
-3. SCSS - creer plus de mixins ou fonctions (en fonction de comment le projet grandit il faut revoir regulierement la css et faire de la refacto, rassembler les règles en mixins, créer des fonctions au besoin, ajouter plus de variables de tailles de polices, marges etc..)
-4. Definir 2 ou 3 breakpoints (max) pour eviter d'en avoir trop
-5. UX - transformer le carré gris avec la quantité en input et permettre à l'utilisateur de saisir le nombre des produits directement.
-6. J'aurai amélioré un peu les polices - implementer un font plus joli (?) - reduire les tailles
-7. Améliorer la compatibilité cross-browser - (leger décalage de l'affichage fles sur FF)
-8. LazyScroll - j'aurai bien aimé ajouter un useEffect qui recupere la hauteur de la page et determine le nombre des elements initialement chargés automatiquement. Si on ne saisit pas le nombre exacte, le composant affiche le nombre des elements qui entrent dans la partie visible de du window et ensuite les elements s'ajoutent progresssivement au scroll.
-9. Comme pour chaque site, il faut ajouter un composant loader.
-10. Créer un hook pour fetcher data avec la gestion d'erreurs et le loader - quelques chose comme :
-https://github.com/edytaskibinska/P12/blob/master/src/hooks/useFetchAsync.js
-- si cette implementation match avec l'initial state du store (à tester) sinon améliorer la fonction fetch dans utils. Ce point aurait besoin de la mise en place si on attend la reponse des vrais data de l'API. 
-11. Component swipable : si besoin créer un composant simple qui prend en children la liste des elements (par exemple divs) et en fonction de nombre et longueur de ces élements swipe du gauche a droite. A voir si on en a besoin dans d'autres endroits de l'application. 
-12. Améliorer l'affichage de la "grille" des produits, ajuster les hauteurs etc
 
 
