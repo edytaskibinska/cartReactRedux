@@ -1,36 +1,37 @@
+@import "../../Styles/mixins";
+
 .productListPage {
   padding-bottom: 200px;
   .lazyScroll {
-    display: flex;
-    flex-direction: column;
-  }
-  @media all and (min-width: 650px) {
-    .lazyScroll {
-      flex-direction: row;
-      flex-wrap: wrap;
-      padding-left: 0;
-      align-items: center;
-    }
-    .listItem {
-      flex: 0 0 calc(30% - 5px);
-      margin: 5px 10px;
+    @include is-grid;
+    .cartElement {
+      min-height: 230px;
+      min-width: 33%;
       align-self: stretch;
       display: flex;
-      .cartElement {
-        min-height: 200px;
-        align-self: stretch;
-        display: flex;
-        justify-content: stretch;
-      }
-      .contentStatic {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-      }
-      .contentAfter {
-        justify-content: center;
-      }
+      justify-content: stretch;
+    }
+
+    .contentStatic {
+      flex: 1; //prend toute la hauteur disponible dans .cartElement 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contentAfter {
+      margin-top: auto; //place  .contentAfter en bas du bloc .contentStatic
+    }
+  }
+
+  .listItem {
+    align-self: center;
+    justify-content: center;
+    // selectionne les deux derniers éléments
+    &:nth-last-child(-n + 2) {
+      justify-self: start; //aligne les deux derniers éléments à gauche
     }
   }
 }
+
+
