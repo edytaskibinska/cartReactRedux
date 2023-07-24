@@ -19,7 +19,7 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
   const productsInCart = useSelector((state: RootState) => state.cart.items);
 
   const getProductQuantityFromCart = (productId: number) => {
-    const cartItem = productsInCart.find((item) => item.id === productId);
+    const cartItem = productsInCart.find((item:InterfaceCartElement) => item.id === productId);
     return cartItem ? cartItem.quantity : 0;
   };
 
@@ -49,14 +49,14 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
                   id={item.id}
                   onClick={() => handleAddToCart(item)}
                   disabled={productsInCart.some(
-                    (cartItem) => cartItem.id === item.id
+                    (cartItem:InterfaceCartElement) => cartItem.id === item.id
                   )}
                 >
-                  {productsInCart.some((cartItem) => cartItem.id === item.id)
+                  {productsInCart.some((cartItem:InterfaceCartElement) => cartItem.id === item.id)
                     ? `Déjà dans le panier`
                     : "Ajouter au panier"}
                 </Button>
-                {productsInCart.some((cartItem) => cartItem.id === item.id) && (
+                {productsInCart.some((cartItem:InterfaceCartElement) => cartItem.id === item.id) && (
                   <>
                     <Button onClick={() => handleDecrease(item.id)}>-</Button>
 

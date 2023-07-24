@@ -5,7 +5,7 @@ import {
 import "@testing-library/jest-dom/extend-expect";
 //importing configured stoer
 import { Provider } from "react-redux";
-import store from "../../Store/configureStore";
+import { store } from "../../Store/configureStore";
 //importing components and interfaces
 import CartList from "./CartList";
 import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
