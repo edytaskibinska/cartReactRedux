@@ -107,6 +107,7 @@ Si vous avez des questions n'hesitez pas a revenir vers moi.
 4. Ajout de redux persist pour stocker le state dans localstorage 
 
 FILES :
+```
     modified:   README.md // MAJ de readme - plus clair
     new file:   empty-module.js //En résumé, utiliser module.exports = {}; (ou export default {} en TypeScript) dans empty-module.js  permet de créer un module vide qui peut être utilisé pour des mocks, éviter des erreurs de module manquant ou remplacer temporairement des modules lors de l'écriture de tests unitaires avec Jest.
     new file:   jest.config.ts // config pour JEST
@@ -120,5 +121,6 @@ FILES :
     new file:   src/modules.d.ts // file that is used to declare types for external modules that are not shipped with official type declaration files. It enhances the development experience by providing type information for these modules, enabling the TypeScript compiler to better understand their structure and detect potential errors in the code.
     new src/__mocks__/fetchdata.ts // Mock the Fetch Function: I have created te mock implementation of the fetch function that returns mock data for testing purposes. 
     modified:   src/Store/configureStore // adding redux-persist
+    ```
 
 
