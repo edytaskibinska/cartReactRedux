@@ -17,14 +17,25 @@ L’exercice consiste à tester vos capacités à concevoir une architecture d�
 L'Application est basé sur les principes on S.O.L.I.D qui ont étés abstraits pour pouvoir les utiliser dans l'application React Typescript moderne.
 Recherchez les mots-clés S.O.L.I.D dans le code pour voir les exemples.
 
-## Les commandes pour demarrer le projet: 
 
-Install node-modules :
+## Installation  : 
+
+Clone the repo:
+```
+git clone https://github.com/edytaskibinska/cartReactRedux.git
+```
+
+Once you cloned the project, you need to need to install the node-modules on the project repository (root) : 
 ```
 npm install
 ```
 
-Development mode : 
+Make sure that you have the last version of Proton Design System modules:
+```
+npm i @e-skibinska/proton-design-system
+```
+
+Development : 
 ```
 npm run dev
 ```
@@ -34,14 +45,14 @@ Build :
 npm run build
 ```
 
-Typescript check CLI : 
+Run typescript checker : 
 ```
 tsc
 ```
 
-Test with Jest: 
+If needed, to have tha last version of packages please run:
 ```
-npm test
+npm update
 ```
 
 ## Fonctionnalités : 
