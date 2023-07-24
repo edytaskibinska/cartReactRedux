@@ -1,13 +1,12 @@
-// __mocks__/fetchData.ts
-import { InterfaceCartElement } from "../Interfaces/InterfaceCartElement";
+import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 
 // Mock implementation of fetchData
 export const fetchData = async (): Promise<InterfaceCartElement[]> => {
   // Return mock data
-  return [
+  return Promise.resolve([
     { id: 1, title: "Mock Product 1", description: "Mock Description 1", quantity: 1 },
     { id: 2, title: "Mock Product 2", description: "Mock Description 2", quantity: 1 },
-  ];
+  ]);
 };
 
 
