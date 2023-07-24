@@ -2,7 +2,7 @@
 export default {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  // Autres options de configuration spécifiques à votre projet peuvent être ajoutées ici
+  // Autres options de configuration spécifiques au projet
   moduleNameMapper: {
     "\\.(css|scss)$": "<rootDir>/empty-module.js",
   },
