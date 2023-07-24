@@ -13,6 +13,8 @@ const CartPage: FC<ICartPage> = () => {
     <div className="cartPage">
       <Box>
         <Title level={2}>Panier</Title>
+        {/* DONE : updatitg card page, removin LazyScroll, adding state from store : */}
+
         <CartList cartItems={cartItems} />
         {cartItems.length <= 0 && (
           <div className="emptyBacket">Le panier est vide</div>

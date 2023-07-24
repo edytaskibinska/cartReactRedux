@@ -1,5 +1,7 @@
 import productsReducer, { addToCart, setInitialData } from "./productSlice";
 
+//DONE : adding unit tests :
+
 describe("productSlice reducers", () => {
   it("should handle addToCart correctly", () => {
     //create initial state with some items

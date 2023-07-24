@@ -100,3 +100,17 @@ J'ai opté pour un s-design simple pour assurer l'affichage en mobile (mobile fi
 
 Si vous avez des questions n'hesitez pas a revenir vers moi. 
 
+## Amelioratons :
+    modified:   README.md // MAJ de readme - plus clair
+    new file:   empty-module.js //En résumé, utiliser module.exports = {}; (ou export default {} en TypeScript) dans empty-module.js  permet de créer un module vide qui peut être utilisé pour des mocks, éviter des erreurs de module manquant ou remplacer temporairement des modules lors de l'écriture de tests unitaires avec Jest.
+    new file:   jest.config.ts // config pour JEST
+    modified:   package.json // adding testing library and dependencies
+    new file:   src/Components/Button/Button.test.tsx // enhancing properties on buttons elements
+    new file:   src/Containers/CartList/CartList.test.tsx //adding tests for cart list
+    renamed:    src/Interfaces/ICartElement.ts -> src/Interfaces/InterfaceCartElement.ts //change naming
+    modified:   src/Pages/CartPage/CartPage.tsx //updatitg card page, removin LazyScroll, adding state from store
+    modified:   src/Store/reducers/cartSlice.ts //refacto of reducers with updateQuantity function etc..
+    new file:   src/Store/reducers/productSlice.test.ts /:addin-ng simple test to product slice
+    new file:   src/modules.d.ts // file that is used to declare types for external modules that are not shipped with official type declaration files. It enhances the development experience by providing type information for these modules, enabling the TypeScript compiler to better understand their structure and detect potential errors in the code.
+    new src/__mocks__/fetchdata.ts // Mock the Fetch Function: I have created te mock implementation of the fetch function that returns mock data for testing purposes. 
+

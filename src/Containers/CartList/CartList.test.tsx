@@ -10,7 +10,7 @@ import store from "../../Store/configureStore";
 import CartList from "./CartList";
 import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 
-
+//DONE : adding unit tests :
 // Sample cart items for testing
 const sampleCartItems: InterfaceCartElement[] = [
   {
