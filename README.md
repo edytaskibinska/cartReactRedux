@@ -101,6 +101,12 @@ J'ai opté pour un s-design simple pour assurer l'affichage en mobile (mobile fi
 Si vous avez des questions n'hesitez pas a revenir vers moi. 
 
 ## Amelioratons :
+1. Implementation des tests unitaires et le config 
+2. Correction de fonctionnement de panier - la quantité qui augmente pour chaque produit ajoute est maintenant geré directement dans reducer addItem
+3. Amélioration de la page Produit - le bouton indique que le produit est ajouté mais l'utilisateur peut changer la quantité et sur la page produit et sur la page panier - les deux sont synchronisés avec le store
+4. Ajout de redux persist pour stocker le state dans localstorage 
+
+FILES :
     modified:   README.md // MAJ de readme - plus clair
     new file:   empty-module.js //En résumé, utiliser module.exports = {}; (ou export default {} en TypeScript) dans empty-module.js  permet de créer un module vide qui peut être utilisé pour des mocks, éviter des erreurs de module manquant ou remplacer temporairement des modules lors de l'écriture de tests unitaires avec Jest.
     new file:   jest.config.ts // config pour JEST
@@ -113,4 +119,6 @@ Si vous avez des questions n'hesitez pas a revenir vers moi.
     new file:   src/Store/reducers/productSlice.test.ts /:addin-ng simple test to product slice
     new file:   src/modules.d.ts // file that is used to declare types for external modules that are not shipped with official type declaration files. It enhances the development experience by providing type information for these modules, enabling the TypeScript compiler to better understand their structure and detect potential errors in the code.
     new src/__mocks__/fetchdata.ts // Mock the Fetch Function: I have created te mock implementation of the fetch function that returns mock data for testing purposes. 
+    modified:   src/Store/configureStore // adding redux-persist
+
 
