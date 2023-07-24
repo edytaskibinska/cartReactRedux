@@ -122,12 +122,15 @@ FILES :
     new src/__mocks__/fetchdata.ts // Mock the Fetch Function: I have created te mock implementation of the fetch function that returns mock data for testing purposes. 
     modified:   src/Store/configureStore // adding redux-persist
     ```
+
+
+
 ## Liste RAF pour améliorer le projet:
 1. UI - ajouter les effets gradient sur le boutons et autres elements du site
-2. UI - ajouter les photos aux elements des produits
+2. UI - ajouter les photos aux elements des produits, améliorer le deign pour le rendre plus user friendly (encore pas mal de travail)
 3. SCSS - creer plus de mixins ou fonctions (en fonction de comment le projet grandit il faut revoir regulierement la css et faire de la refacto, rassembler les règles en mixins, créer des fonctions au besoin, ajouter plus de variables de tailles de polices, marges etc..)
 4. Definir 2 ou 3 breakpoints (max) pour eviter d'en avoir trop
-5. UX - transpormer le carré gris avec la qiantité en input et permettre à l'utilisateur de saisir le nombre des produits directement.
+5. UX - transformer le carré gris avec la quantité en input et permettre à l'utilisateur de saisir le nombre des produits directement.
 6. J'aurai amélioré un peu les polices - implementer un font plus joli (?) - reduire les tailles
 7. Améliorer la compatibilité cross-browser - (leger décalage de l'affichage fles sur FF)
 8. LazyScroll - j'aurai bien aimé ajouter un useEffect qui recupere la hauteur de la page et determine le nombre des elements initialement chargés automatiquement. Si on ne saisit pas le nombre exacte, le composant affiche le nombre des elements qui entrent dans la partie visible de du window et ensuite les elements s'ajoutent progresssivement au scroll.
