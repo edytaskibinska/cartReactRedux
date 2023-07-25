@@ -75,11 +75,7 @@ const cartSlice = createSlice({
         return;
       }
       state.items = updatedItems;
-      //before refacto
-      // const item = state.items?.find((item) => item?.id === action.payload);
-      // if (item && item.quantity !== undefined) {
-      //   item.quantity++;
-      // }
+     
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
       const productId = action.payload;
@@ -89,16 +85,7 @@ const cartSlice = createSlice({
         return;
       }
       state.items = updatedItems;
-      //before refacto
-      // const item = state.items?.find((item) => item?.id === action.payload);
-      // if (item && item.quantity !== undefined) {
-      //   console.log("item.quantity", item.quantity);
-      //   if (item.quantity <= 0) {
-      //     return;
-      //   }
-      //   item.quantity--;
-      //   console.log("item.quantity after", item?.quantity);
-      // }
+     
     },
     removeItem(state, action: PayloadAction<number>) {
       //was before refacto:

@@ -8,7 +8,7 @@ interface ICartElemWithActions extends InterfaceCartElement {
   contentBefore?: ReactNode;
   contentAfter?: ReactNode;
   swippable?: boolean;
-  handleConfirmDelete?: (event: MouseEvent<any>) => void;
+  handleConfirmDelete?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 // S.O.L.I.D - SRP - Single Responsibility Principle

@@ -19,14 +19,14 @@ const Footer: FC<IFooter> = ({ children }) => {
   const dispatch = useDispatch();
   const [confirmation, setConfirmation] = useState(false);
 
-  const handleEmptyCart = (stateArray: any) => {
-    dispatch(emptyCart(stateArray));
+  const handleEmptyCart = () => {
+    dispatch(emptyCart());
     setConfirmation(true);
   };
   return (
     <>
       {cartItems.length && (
-        <footer onClick={() => handleEmptyCart(cartItems)} className="footer">
+        <footer onClick={() => handleEmptyCart} className="footer">
           <p className="footer__text">{children}</p>
         </footer>
       )}

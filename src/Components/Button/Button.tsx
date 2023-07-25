@@ -1,14 +1,14 @@
-import { FC, ReactNode, MouseEvent, ButtonHTMLAttributes } from "react";
+import { FC, ReactNode, ButtonHTMLAttributes } from "react";
 import "./Button.scss";
 
 //Button component
 //S.O.L.I.D - SRP - Single Responsibility Principle
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  id?: any;
+  id?: string;
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
-  onClick?: (event: MouseEvent<any>) => void;
+  onClick?: (event: React.MouseEvent<any>) => void ; 
 }
 
 const Button: FC<IButton> = ({

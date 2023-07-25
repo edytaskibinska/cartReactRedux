@@ -23,13 +23,13 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
     return cartItem ? cartItem.quantity : 0;
   };
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: InterfaceCartElement) => {
     dispatch(addItem(product));
   };
-  const handleIncrease = (id: any) => {
+  const handleIncrease = (id: number) => {
     dispatch(increaseQuantity(id));
   };
-  const handleDecrease = (id: any) => {
+  const handleDecrease = (id: number) => {
     dispatch(decreaseQuantity(id));
   };
 

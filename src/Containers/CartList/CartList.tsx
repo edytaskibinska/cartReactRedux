@@ -17,10 +17,10 @@ interface ICartList {
 const CartList: FC<ICartList> = ({ cartItems }) => {
   const dispatch = useDispatch();
 
-  const handleIncrease = (id: any) => {
+  const handleIncrease = (id: number) => {
     dispatch(increaseQuantity(id));
   };
-  const handleDecrease = (id: any) => {
+  const handleDecrease = (id: number) => {
     dispatch(decreaseQuantity(id));
   };
 
@@ -30,7 +30,7 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
 
   return (
     <>
-      {cartItems.map((item: InterfaceCartElement, index: any) => (
+      {cartItems.map((item: InterfaceCartElement, index: number) => (
         <div key={item.id} className={`listItem`}>
           <CartElement
             swippable

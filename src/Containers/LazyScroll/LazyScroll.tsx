@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 
-interface ILazyScroll<T> {
+export interface ILazyScroll<T> {
   items: T[];
   component: FC<{ cartItems: T[] }>;
   initialVisibleElement?: number;
@@ -8,7 +8,7 @@ interface ILazyScroll<T> {
 }
 
 // S.O.L.I.D - SRP - Single Responsibility Principle
-const LazyScroll = <T extends any>({
+const LazyScroll = <T extends ILazyScroll<T>>({
   items,
   component: Component,
   initialVisibleElement,
