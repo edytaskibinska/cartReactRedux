@@ -25,7 +25,7 @@ const LazyScroll = <T extends any>({
     if (visibleCount < totalItems) {
       window.addEventListener("scroll", handleScroll);
       return () => {
-        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("scroll", handleScroll);//cleanup function for better performance
       };
     }
   }, [visibleCount, totalItems]);
