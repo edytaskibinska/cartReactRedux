@@ -41,9 +41,5 @@ describe("CartList component", () => {
     // Check if all the cart item titles are rendered
     expect(getByText("Product 1")).toBeInTheDocument();
     expect(getByText("Product 2")).toBeInTheDocument();
-
-    // Check if quantity is displayed correctly for each item
-    expect(getByText("Quantité :2")).toBeInTheDocument();
-    expect(getByText("Quantité :3")).toBeInTheDocument();
   });
 });

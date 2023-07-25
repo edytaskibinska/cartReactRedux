@@ -22,21 +22,20 @@ const CartElement: FC<ICartElemWithActions> = ({
   swippable,
   handleConfirmDelete,
 }) => {
+  //SWIPE:
   //state to control the display of content before on swipe
   const [showContentBefore, setShowContentBefore] = useState(false);
-
   //reference to store the initial touch position during swipe
   const touchStartXRef = useRef<number | null>(null);
-
   //handle the initial touch during swipe
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    touchStartXRef.current = event.touches[0].clientX;
+    touchStartXRef.current = event.touches[0].clientX;//returns the x coord of the touch point relative to the viewport
   };
 
   //handle the touch release during swipe
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
     if (touchStartXRef.current !== null) {
-      const touchEndX = event.changedTouches[0].clientX;
+      const touchEndX = event.changedTouches[0].clientX;//defining touch end
       const touchDistance = touchEndX - touchStartXRef.current;
 
       //if the swipe exceeds 100 pixels, show the content before
