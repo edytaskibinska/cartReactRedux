@@ -3,7 +3,7 @@ import {
   //fireEvent
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-//importing configured stoer
+//importing configured store
 import { Provider } from "react-redux";
 import { store } from "../../Store/configureStore";
 //importing components and interfaces
