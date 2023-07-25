@@ -151,6 +151,7 @@ https://github.com/edytaskibinska/P12/blob/master/src/hooks/useFetchAsync.js
 - si cette implementation match avec l'initial state du store (à tester) sinon améliorer la fonction fetch dans utils. Ce point aurait besoin de la mise en place si on attend la reponse des vrais data de l'API. 
 11. Component swipable : si besoin créer un composant simple qui prend en children la liste des elements (par exemple divs) et en fonction de nombre et longueur de ces élements swipe du gauche a droite. A voir si on en a besoin dans d'autres endroits de l'application. 
 12. Améliorer l'affichage de la "grille" des produits, ajuster les hauteurs etc
+13. Implementer circle CI pour la partie ops
 
 
 
