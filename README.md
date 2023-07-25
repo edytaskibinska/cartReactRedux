@@ -143,15 +143,14 @@ https://github.com/edytaskibinska/P12/blob/master/src/hooks/useFetchAsync.js
 4. Definir 2 ou 3 breakpoints (max) pour eviter d'en avoir trop
 5. UX - transformer le carré gris avec la quantité en input et permettre à l'utilisateur de saisir le nombre des produits directement.
 6. J'aurai amélioré un peu les polices - implementer un font plus joli (?) - reduire les tailles
-7. Améliorer la compatibilité cross-browser - (leger décalage de l'affichage fles sur FF)
-8. LazyScroll - j'aurai bien aimé ajouter un useEffect qui recupere la hauteur de la page et determine le nombre des elements initialement chargés automatiquement. Si on ne saisit pas le nombre exacte, le composant affiche le nombre des elements qui entrent dans la partie visible de du window et ensuite les elements s'ajoutent progresssivement au scroll.
-9. Comme pour chaque site, il faut ajouter un composant loader.
-10. Créer un hook pour fetcher data avec la gestion d'erreurs et le loader - quelques chose comme :
+7. LazyScroll - j'aurai bien aimé ajouter un useEffect qui recupere la hauteur de la page et determine le nombre des elements initialement chargés automatiquement. Si on ne saisit pas le nombre exacte, le composant affiche le nombre des elements qui entrent dans la partie visible de du window et ensuite les elements s'ajoutent progresssivement au scroll.
+8. Comme pour chaque site, il faut ajouter un composant loader.
+9. Créer un hook pour fetcher data avec la gestion d'erreurs et le loader - quelques chose comme :
 https://github.com/edytaskibinska/P12/blob/master/src/hooks/useFetchAsync.js
 - si cette implementation match avec l'initial state du store (à tester) sinon améliorer la fonction fetch dans utils. Ce point aurait besoin de la mise en place si on attend la reponse des vrais data de l'API. 
-11. Component swipable : si besoin créer un composant simple qui prend en children la liste des elements (par exemple divs) et en fonction de nombre et longueur de ces élements swipe du gauche a droite. A voir si on en a besoin dans d'autres endroits de l'application. 
-12. Améliorer l'affichage de la "grille" des produits, ajuster les hauteurs etc
-13. Implementer circle CI pour la partie ops
+10. Component swipable : si besoin créer un composant simple qui prend en children la liste des elements (par exemple divs) et en fonction de nombre et longueur de ces élements swipe du gauche a droite. A voir si on en a besoin dans d'autres endroits de l'application. 
+11. Améliorer l'affichage de la "grille" des produits, ajuster les hauteurs etc
+12. Implementer circle CI pour la partie ops
 
 
 
