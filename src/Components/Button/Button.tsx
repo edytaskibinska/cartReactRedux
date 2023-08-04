@@ -4,7 +4,7 @@ import "./Button.scss";
 //Button component
 //S.O.L.I.D - SRP - Single Responsibility Principle
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  id?: string;
+  id?: any;
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
