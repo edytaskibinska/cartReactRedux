@@ -17,13 +17,8 @@ function updateProductQuantity(
 ): InterfaceCartElement[] | false {
   const product = products.find((p) => p.id === productId);
 
-  if (!product || product.quantity === undefined) {
-    return false;
-  }
-
-  const newQuantity = (product.quantity || 0) + quantityDelta;
-
-  if (newQuantity < 0) {
+  const newQuantity = (product?.quantity ?? 0) + quantityDelta;
+  if ((!product || product.quantity === undefined) && newQuantity < 0) {
     return false;
   }
 
@@ -52,15 +47,14 @@ const cartSlice = createSlice({
       );
 
       if (existingProduct) {
-        const updatedItems = updateProductQuantity(
-          state.items,
-          product.id,
-          product.quantity || 0
-        );
+        const { id, quantity = 0 } = product;
+        const updatedItems = updateProductQuantity(state.items, id, quantity);
+
         if (updatedItems === false) {
-          // handle the case where product.quantity < 0
+          // if the quantity is invalid
           return;
         }
+
         state.items = updatedItems;
       } else {
         state.items.push(product);
@@ -75,7 +69,6 @@ const cartSlice = createSlice({
         return;
       }
       state.items = updatedItems;
-     
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
       const productId = action.payload;
@@ -85,7 +78,6 @@ const cartSlice = createSlice({
         return;
       }
       state.items = updatedItems;
-     
     },
     removeItem(state, action: PayloadAction<number>) {
       //was before refacto:

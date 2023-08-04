@@ -21,13 +21,26 @@ const LazyScroll = <T extends ILazyScroll<T>>({
   );
 
   useEffect(() => {
-    //add event listener for scroll if there are more items to load
-    if (visibleCount < totalItems) {
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);//cleanup function for better performance
+    (visibleCount < totalItems) && (() => {
+      const handleScroll = () => {
+        const totalPageHeight = document.body.scrollHeight;
+        console.log("totalPageHeight", totalPageHeight);
+        const currentPosition = window.innerHeight + window.scrollY;
+        //check if the user reached the bottom of the page
+        if (totalPageHeight - currentPosition < 100) {
+          //load a defined number of elements on scroll
+          setVisibleCount((prevCount) => prevCount + numberOfAddedElementOnScroll);
+        }
       };
-    }
+    
+      window.addEventListener("scroll", handleScroll);
+    
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    })();
+
+
   }, [visibleCount, totalItems]);
 
   useEffect(() => {
@@ -35,16 +48,7 @@ const LazyScroll = <T extends ILazyScroll<T>>({
     setVisibleItems(items.slice(0, visibleCount));
   }, [items, visibleCount]);
 
-  const handleScroll = () => {
-    const totalPageHeight = document.body.scrollHeight;
-    console.log("totalPageHeight", totalPageHeight);
-    const currentPosition = window.innerHeight + window.scrollY;
-    //check if the user reached the bottom of the page
-    if (totalPageHeight - currentPosition < 100) {
-      //load a defined number of elements on scroll
-      setVisibleCount((prevCount) => prevCount + numberOfAddedElementOnScroll);
-    }
-  };
+
 
   return (
     <div className="lazyScroll">
