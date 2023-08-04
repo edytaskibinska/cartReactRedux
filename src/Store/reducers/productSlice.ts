@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { ThunkDispatch } from "redux-thunk"; // Importez ThunkDispatch
 import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
-
 import { fetchData } from "../../Utils/fetchData";
 
 interface ProductsState {
@@ -12,7 +11,8 @@ const initialState: ProductsState = {
   items: [],
 };
 
-export const fetchInitialData = () => async (dispatch: any) => {
+// Utilisez ThunkDispatch avec le type approprié pour l'argument dispatch
+export const fetchInitialData = () => async (dispatch: ThunkDispatch<ProductsState, any, PayloadAction<InterfaceCartElement[]>>) => {
   try {
     const data = await fetchData("./fakeData.json");
     dispatch(productsSlice.actions.setInitialData(data));

@@ -1,5 +1,5 @@
 export interface InterfaceCartElement {
-  id: any;
+  id: number ;
   title: string;
   description: string;
   quantity?: number

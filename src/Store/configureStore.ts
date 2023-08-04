@@ -29,21 +29,11 @@ export const store = configureStore({
   reducer: persistedReducer, // utilise le persistedReducer ici au lieu du rootReducer directement
   middleware: [thunk],
 });
-// before:
-// const store = configureStore({
-//   reducer: {
-//     products: productsReducer,
-//     cart: cartReducer,
-//   },
-//   middleware: [thunk],
-// });
 
 store.dispatch(fetchInitialData() as any);
 
 export let persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof rootReducer>;
-//before:
-//export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
