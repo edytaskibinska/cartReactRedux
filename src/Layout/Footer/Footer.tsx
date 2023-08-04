@@ -26,7 +26,7 @@ const Footer: FC<IFooter> = ({ children }) => {
   return (
     <>
       {cartItems.length && (
-        <footer onClick={() => handleEmptyCart} className="footer">
+        <footer onClick={() => handleEmptyCart()} className="footer">
           <p className="footer__text">{children}</p>
         </footer>
       )}
