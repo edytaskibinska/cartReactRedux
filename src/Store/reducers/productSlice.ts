@@ -10,15 +10,7 @@ const initialState: ProductsState = {
   items: [],
 };
 
-// Utilisez ThunkDispatch avec le type approprié pour l'argument dispatch
-// export const fetchInitialData = () => async (dispatch: ThunkDispatch<ProductsState, any, PayloadAction<InterfaceCartElement[]>>) => {
-//   try {
-//     const data = await fetchData("./fakeData.json");
-//     dispatch(productsSlice.actions.setInitialData(data));
-//   } catch (error) {
-//     console.error("Error fetching initial data:", error);
-//   }
-// };
+
 
 export const fetchInitialData = createAsyncThunk(
   "products/fetchInitialData",
@@ -43,6 +35,5 @@ const productsSlice = createSlice({
   },
 });
 
-//export const { setInitialData } = productsSlice.actions;
 
 export default productsSlice.reducer;

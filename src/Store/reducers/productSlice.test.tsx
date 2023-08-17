@@ -5,7 +5,6 @@ import productsReducer, { fetchInitialData } from "./productSlice";
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-// ...
 
 describe("productSlice reducers", () => {
   it("should handle fetchInitialData correctly", async () => {
