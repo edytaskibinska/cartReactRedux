@@ -35,7 +35,7 @@ const ProductList: FC<IProductList> = ({ cartItems }) => {
 
   return (
     <>
-      {cartItems.map((item: InterfaceCartElement) => (
+      {cartItems && cartItems?.map((item: InterfaceCartElement) => (
         <div key={item.id} className={`listItem`}>
           <CartElement
             key={item.id}

@@ -30,7 +30,7 @@ const CartList: FC<ICartList> = ({ cartItems }) => {
 
   return (
     <>
-      {cartItems.map((item: InterfaceCartElement, index: number) => (
+      {cartItems && cartItems?.map((item: InterfaceCartElement, index: number) => (
         <div key={item.id} className={`listItem`}>
           <CartElement
             swippable

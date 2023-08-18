@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
-import { fetchData } from "../../Utils/fetchData";
+import { fetchDataService } from "../../Services/dataService";
 
 interface ProductsState {
   items: InterfaceCartElement[];
@@ -16,7 +16,7 @@ export const fetchInitialData = createAsyncThunk(
   "products/fetchInitialData",
   async () => {
     try {
-      const data = await fetchData("./fakeData.json");
+      const data = await fetchDataService("./fakeData.json");
       return data;
     } catch (error) {
       throw error;
