@@ -6,4 +6,10 @@ export default {
   moduleNameMapper: {
     "\\.(css|scss)$": "<rootDir>/empty-module.js",
   },
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}", // Chemin vers les fichiers que vous souhaitez couvrir
+  ],
+  coverageDirectory: "coverage", // Dossier où seront stockés les rapports de couverture
+  coverageReporters: ["text", "lcov"], // Rapport en texte et rapport LCOV
 };

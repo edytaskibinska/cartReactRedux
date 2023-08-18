@@ -13,7 +13,7 @@ import { InterfaceCartElement } from "../../Interfaces/InterfaceCartElement";
 //DONE : adding unit tests :
 
 //mock fetchData fn:
-jest.mock("../../Utils/fetchData");
+jest.mock("../../Services/dataService");
 
 describe("CartList component", () => {
   const sampleCartItems: InterfaceCartElement[] = [
