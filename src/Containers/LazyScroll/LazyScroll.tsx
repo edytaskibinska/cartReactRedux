@@ -20,6 +20,7 @@ const LazyScroll = <T extends ILazyScroll<T>>({
     initialVisibleElement || totalItems
   );
 
+
   useEffect(() => {
     (visibleCount < totalItems) && (() => {
       const handleScroll = () => {
