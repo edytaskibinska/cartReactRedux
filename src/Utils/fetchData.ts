@@ -18,3 +18,4 @@ export const fetchData = async (dataUrl: string): Promise<InterfaceCartElement[]
   }
 };
 
+

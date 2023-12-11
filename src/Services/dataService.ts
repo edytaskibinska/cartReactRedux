@@ -15,5 +15,3 @@ export const fetchDataService = async (dataUrl: string): Promise<InterfaceCartEl
       return [];
     }
   };
-
-  
